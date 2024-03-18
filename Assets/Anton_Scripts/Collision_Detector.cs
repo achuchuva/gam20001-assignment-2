@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class Collision_Detector : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField]
+    private GameObject collisionSpawnedObject;
+    private AudioSource audio;
+
     void Start()
     {
-
+        audio = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnCollisionEnter(Collision other)
     {
-
-    }
-
-    void OnCollisionEnter()
-    {
-        Debug.Log("Do something funny");
+        Debug.Log("This object " + transform.name + " collided with object " + other.transform.name);
+        Instantiate(collisionSpawnedObject, other.contacts[0].point, Quaternion.identity);
+        audio.Play();
     }
 }

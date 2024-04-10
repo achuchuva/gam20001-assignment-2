@@ -23,5 +23,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Anton_VA09.unity
     guid: 52b1f91e5c83b3949971daa87ed861ad
+  - enabled: 1
+    path: Assets/Scenes/Anton_AU01.unity
+    guid: fd42324d9ef1ddf478e1c0b163520b05
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

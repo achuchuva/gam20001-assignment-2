@@ -2,31 +2,37 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class TestInput : MonoBehaviour
+public class Jump : MonoBehaviour
 {
-    private InputAction testAction;
-    private PlayerInput playerInput;
-
-    private void Awake()
-    {
-        //playerInput = GameObject.GetComponent<PlayerInput>()
-
-        testAction = playerInput.actions.FindAction("Jump");
-        testAction.performed += DoJumpAction;
-    }
+    private InputActions inputActions;
 
     private void OnEnable()
     {
-        testAction.Enable();
+        inputActions = new InputActions();
+        inputActions.Enable();
+
+        inputActions.Player.Jump.performed += ctx => PerformJump();
     }
 
     private void OnDisable()
     {
-        testAction.Disable();
+        inputActions.Disable();
     }
 
-    void DoJumpAction(InputAction.CallbackContext context)
+    public float jumpForce = 2f;
+
+    void Start()
     {
-        Debug.Log("JumpAction Success!!");
+        var playerControls = new InputActions();
+        playerControls.Enable();
+
+
+        playerControls.Player.Jump.performed += ctx => PerformJump();
     }
+
+    void PerformJump()
+    {
+        GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    }
+
 }

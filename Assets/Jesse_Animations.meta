@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Jesse_Animations.meta
 guid: 404e020952df5d14e96598f24c7591f8
 folderAsset: yes
+========
+guid: 52b1f91e5c83b3949971daa87ed861ad
+>>>>>>>> 0193b1a937e3fd96f755e4cf319863efb2c242b6:Assets/Scenes/Anton_VA09.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
